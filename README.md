@@ -51,6 +51,24 @@ Configures the C++ project from the current (source) directory into a build dire
 
 ---
 
+### C++ CppCheck step
+
+Source: [`vars/cppCheck.groovy'](./vars/cppCheck.groovy)
+
+Accepts a map of configuration values with a default of an empty map. Possiple config parameters:
+
+|   Parameter   |     Type     |     Default Value     |
+| ------------- | ------------ | --------------------- |
+| sourceDirs    | List[String] | ['src', 'include']    |
+| failOnIssue   | Boolean      | false                 |
+| reportFile    | String       | 'cppcheck-report.txt' |
+
+Runs cppcheck over the configured source directories (`sourceDirs`) and writes findings to a report file at `reportFile` path.
+Interrupts the pipeline with error or proceeds further on issue depending on `failOnIssue`.
+`false` means: run static analysis and produce the report, but don't use cppcheck as a blocking quality gate.
+
+---
+
 ### Python Environment Setup step
 
 Source: [`vars/pythonBootstrap.groovy'](./vars/pythonBootstrap.groovy)
