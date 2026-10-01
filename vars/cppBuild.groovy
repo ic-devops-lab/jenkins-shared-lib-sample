@@ -6,6 +6,26 @@ def call(Map config = [:]) {
     def buildType = config.get('buildType', 'Debug')
     def buildTesting = config.get('buildTesting', true)
 
+    def allowedBuildTypes = [
+        'Debug',
+        'Release',
+        'RelWithDebInfo',
+        'MinSizeRel'
+    ]
+
+    if (!buildType in allowedBuildTypes) {
+        error(
+            "Unsupported build type: '${buildType}'." +
+            "Allowed values: ${allowedBuildTypes.join(', ')}."
+        )
+    }
+
+    if (buildTesting) {
+        echo "Tests enabled"
+    } else {
+        echo "Tests disabled"
+    }
+
     sh """
     set -euo pipefail
 
