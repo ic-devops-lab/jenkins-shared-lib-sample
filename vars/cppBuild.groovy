@@ -1,6 +1,7 @@
 def call(Map config = [:]) {
     /// Packages a standard configure-and-build C++ projectworkflow into a single reusable step that
     /// can be called from a Jenkins pipeline with different build settings.
+    echo "Shared Library: cppBuild() starts working..."
 
     def buildDir = config.get('buildDir', 'build')
     def buildType = config.get('buildType', 'Debug')
@@ -37,4 +38,6 @@ def call(Map config = [:]) {
 
         cmake --build '${buildDir}' --parallel
     """
+
+    echo "Shared Library: cppBuild() finished successfully."
 }

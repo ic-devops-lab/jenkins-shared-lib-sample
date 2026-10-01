@@ -51,6 +51,22 @@ Configures the C++ project from the current (source) directory into a build dire
 
 ---
 
+### Python Environment Setup step
+
+Source: [`vars/pythonBootstrap.groovy'](./vars/pythonBootstrap.groovy)
+
+Accepts a map of configuration values with a default of an empty map. Possiple config parameters:
+
+|   Parameter   |   Type   |    Default Value    |
+| ------------- | -------- | ------------------- |
+| requirements  | String   | 'requirements.txt'  |
+| venvDir       | String   | '.venv'             |
+| pythonCmd     | String   | 'python3'           |
+
+Creates a Python virtual environment in the `venvDir` directory using `pythonCmd` command, and installs the project dependencies, listed in the file at `requirements` path.
+
+---
+
 ### Lunux System Info
 
 Source: [`vars/sysInfoLinux.groovy'](./vars/sysInfoLinux.groovy)
