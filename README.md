@@ -69,6 +69,21 @@ Interrupts the pipeline with error or proceeds further on issue depending on `fa
 
 ---
 
+### C++ ClangFormat step
+
+Source: [`vars/clangFormatCheck.groovy'](./vars/clangFormatCheck.groovy)
+
+Accepts a map of configuration values with a default of an empty map. Possiple config parameters:
+
+|   Parameter   |     Type     |     Default Value     |
+| ------------- | ------------ | --------------------- |
+| sourceDirs    | List[String] | ['src', 'include']    |
+| extensions    | List[String] | ['cpp', 'hpp']        |
+
+Runs clang-format for the files with the given `extensions` over the configured source directories (`sourceDirs`).
+
+---
+
 ### Python Environment Setup step
 
 Source: [`vars/pythonBootstrap.groovy'](./vars/pythonBootstrap.groovy)
